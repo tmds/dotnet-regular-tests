@@ -1,11 +1,10 @@
 {
-  "name": "tool-dev-certs",
+  "name": "sleeper",
   "enabled": true,
   "requiresSdk": true,
-  "version": "2.1",
+  "version": "6.0",
   "versionSpecific": false,
   "type": "bash",
-  "cleanup": true,
-  "ignoredRIDs":[
-  ]
+  "cleanup": true
 }
+
