@@ -4,8 +4,10 @@ set -euo pipefail
 IFS=$'\n\t'
 set -x
 
-IFS='.-' read -ra VERSION_SPLIT <<< "$1" 
-dotnet tool update -g dotnet-monitor --version "${VERSION_SPLIT[0]}.*-*"
+# Prefer the version matching the .NET SDK version, and fall back to the latest otherwise.
+IFS='.-' read -ra VERSION_SPLIT <<< "$1"
+dotnet tool update -g dotnet-monitor --version "${VERSION_SPLIT[0]}.*" || \
+   ( ( dotnet tool uninstall -g dotnet-monitor || true ) && dotnet tool install -g dotnet-monitor --prerelease --allow-roll-forward )
 
 export PATH="$HOME/.dotnet/tools:$PATH"
 
