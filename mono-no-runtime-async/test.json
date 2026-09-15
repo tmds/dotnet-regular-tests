@@ -1,0 +1,14 @@
+{
+  "name": "mono-no-runtime-async",
+  "enabled": true,
+  "requiresSdk": true,
+  "version": "11.0",
+  "versionSpecific": false,
+  "type": "bash",
+  "cleanup": true,
+  "skipWhen": [
+    "runtime=coreclr"
+  ],
+  "ignoredRIDs":[
+  ]
+}
